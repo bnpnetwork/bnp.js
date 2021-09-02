@@ -1,4 +1,4 @@
-# BNP.js V2
+# BNP.js 
 
 This is the rewrite of `bnpjs`. If you are looking for the previous version, look for [ethereum-ens](https://www.npmjs.com/package)
 
@@ -161,4 +161,4 @@ Returns a Name Object that hardcodes the resolver
 
 ## NOTE
 
-The previous version of `bnpjs` can be found at https://github.com/ensdomains/ensjs/tree/v1
+These version of `bnpjs` can be is still at beta. 
