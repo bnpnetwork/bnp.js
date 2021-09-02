@@ -1,33 +1,33 @@
-# ENS.js V2
+# BNP.js V2
 
-This is the rewrite of `ensjs`. If you are looking for the previous version, look for [ethereum-ens](https://www.npmjs.com/package/ethereum-ens)
+This is the rewrite of `bnpjs`. If you are looking for the previous version, look for [ethereum-ens](https://www.npmjs.com/package)
 
 ## Overview of the API
 
 ### Setup
 
 ```
-import ENS, { getEnsAddress } from '@ensdomains/ensjs'
+import BNP, { getdomainAddress } from '@bnpdomains/bnpjs'
 
 
 
-const ens = new ENS({ provider, ensAddress: getEnsAddress('1') })
+const ens = new BNP({ provider, bnpAddress: getBnpAddress('1') })
 
-ens.name('resolver.eth').getAddress() // 0x123
+ens.name('resolver.').getAddress() // 0x123
 ```
 
 ### exports
 
 ```
-default - ENS
-getEnsAddress
+default - BNP
+getBnpAddress
 getResolverContract
-getENSContract
+getBNPContract
 namehash
 labelhash
 ```
 
-### ENS Interface
+### BNP Interface
 
 ```
 name(name: String) => Name
@@ -36,99 +36,99 @@ name(name: String) => Name
 Returns a Name Object, that allows you to make record queries.
 
 ```
-resolver(address: EthereumAddress) => Resolver
+resolver(address: DomainAddress) => Resolver
 ```
 
 Returns a Resolver Object, allowing you to query names from this specific resolver. Most useful when querying a different resolver that is different than is currently recorded on the registry. E.g. migrating to a new resolver
 
 ```
-async getName(address: EthereumAddress) => Promise<Name>
+async getName(address: DomainAddress) => Promise<Name>
 ```
 
-Returns the reverse record for a particular Ethereum address.
+Returns the reverse record for a particular Domain address.
 
 ```
 async setReverseRecord(name: Name) => Promise<EthersTxObject>
 ```
 
-Sets the reverse record for the current Ethereum address
+Sets the reverse record for the current Domain address
 
 ### Name Interface
 
 ```ts
-async getOwner() => Promise<EthereumAddress>
+async getOwner() => Promise<DomainAddress>
 ```
 
-Returns the owner/controller for the current ENS name.
+Returns the owner/controller for the current BNP name.
 
 ```ts
-async setOwner(address: EthereumAddress) => Promise<Ethers>
+async setOwner(address: DomainAddress) => Promise<Ethers>
 ```
 
-Sets the owner/controller for the current ENS name.
+Sets the owner/controller for the current BNP name.
 
 ```ts
-async getResolver() => Promise<EthereumAddress>
+async getResolver() => Promise<DomainAddress>
 ```
 
-Returns the resolver for the current ENS name.
+Returns the resolver for the current BNP name.
 
 ```ts
-async setResolver(address: EthereumAddress) => Promise<EthereumAddress>
+async setResolver(address: DomainAddress) => Promise<DomainAddress>
 ```
 
-Sets the resolver for the current ENS name.
+Sets the resolver for the current BNP name.
 
 ```ts
 async getTTL() => Promise<Number>
 ```
 
-Returns the TTL for the current ENS name.
+Returns the TTL for the current BNP name.
 
 ```ts
-async getAddress(coinId: String) => Promise<EthereumAddress>
+async getAddress(coinId: String) => Promise<DomianAddress>
 ```
 
-Returns the address for the current ENS name for the coinId provided.
+Returns the address for the current BNP name for the coinId provided.
 
 ```ts
-async setAddress(coinId: String, address: EthereumAddress) => Promise<EthersTxObject>
+async setAddress(coinId: String, address: DomainAddress) => Promise<EthersTxObject>
 ```
 
-Sets the address for the current ENS name for the coinId provided.
+Sets the address for the current BNP name for the coinId provided.
 
 ```ts
 async getContent() => Promise<ContentHash>
 ```
 
-Returns the contentHash for the current ENS name.
+Returns the contentHash for the current BNP name.
 
 ```ts
 async setContenthash(content: ContentHash) => Promise<EthersTxObject>
 ```
 
-Sets the contentHash for the current ENS name.
+Sets the contentHash for the current BNP name.
 
 ```ts
 async getText(key: String) => Promise<String>
 ```
 
-Returns the text record for a given key for the current ENS name.
+Returns the text record for a given key for the current BNP name.
 
 ```ts
 async setText(key: String, recordValue: String) => Promise<EthersTxObject>
 ```
 
-Sets the text record for a given key for the current ENS name.
+Sets the text record for a given key for the current BNP name.
 
 ```ts
-async setSubnodeOwner(label: String, newOwner: EthereumAddress) => Promise<EthersTxObject>
+async setSubnodeOwner(label: String, newOwner: DomainAddress) => Promise<EthersTxObject>
 ```
 
-Sets the subnode owner for a subdomain of the current ENS name.
+Sets the subnode owner for a subdomain of the current BNP name.
 
 ```ts
-async setSubnodeRecord(label: String, newOwner: EthereumAddress, resolver: EthereumAddress, ttl: ?Number) => Promise<EthersTxObject>
+async setSubnodeRecord(label: String, newOwner: DomainAddress, resolver: DomainAddress, ttl: ?Number) => Promise<EthersTxObject>
 ```
 
 Sets the subnode owner, resolver, ttl for a subdomain of the current ENS name in one transaction.
@@ -161,4 +161,4 @@ Returns a Name Object that hardcodes the resolver
 
 ## NOTE
 
-The previous version of `ensjs` can be found at https://github.com/ensdomains/ensjs/tree/v1
+The previous version of `bnpjs` can be found at https://github.com/ensdomains/ensjs/tree/v1
